@@ -4088,7 +4088,7 @@ button,
     min-width: 290px;
   }
 }
-.subscription-card--special {
+.subscription-card:hover, .subscription-card:focus {
   -o-border-image: linear-gradient(151deg, #ed0233 0%, #003eb7 100%);
      border-image: linear-gradient(151deg, #ed0233 0%, #003eb7 100%);
   border-image-slice: 1;
