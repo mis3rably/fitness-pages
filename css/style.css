@@ -687,7 +687,7 @@ template {
   font-variant: initial;
   line-height: 1;
   width: 16px;
-  height: 11px;
+  height: 33px;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -696,7 +696,7 @@ template {
 }
 
 .swiper-button-prev:after {
-  left: 14px;
+  left: 16px;
 }
 
 .swiper-button-next::after {
@@ -3942,13 +3942,13 @@ button,
 
   .coaches > h2 {
     text-align: center;
-    margin: 0 0 28px 0;
+    margin: 0 0 31px 0;
     font-size: 42px;
     letter-spacing: 1.26px;
   }
 
   .coaches {
-    padding: 47px 101px 103px;
+    padding: 47px 101px 101px;
   }
 
   .coaches__item:not(:last-child) {
@@ -4400,26 +4400,30 @@ button,
   .swiper-button-prev:after,
   .swiper-button-next:after {
     font-size: 22px;
+    width: 12px;
+    height: 24px;
   }
 
   .swiper-button-prev:after {
-    left: 3px;
-    top: 20px;
+    left: 8px;
+    top: 17px;
   }
 
   .swiper-button-next::after {
-    right: 3px;
-    top: 20px;
+    right: 8px;
+    top: 17px;
   }
 
   .swiper-button-prev,
   .swiper-rtl .swiper-button-next {
-    left: -38px;
+    left: -41px;
+    top: 54%;
   }
 
   .swiper-button-next,
   .swiper-rtl .swiper-button-prev {
-    right: -38px;
+    right: -41px;
+    top: 54%;
   }
 
   .container {
