@@ -4218,6 +4218,7 @@ button,
 
   .hero .container {
     padding: 0 45px 47px;
+    max-width: 822px;
   }
 
   .hero__content-wrapper {
