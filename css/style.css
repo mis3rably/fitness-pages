@@ -1697,7 +1697,7 @@ button,
   background-color: rgba(16, 38, 84, 0.89);
   -webkit-transition: 0.2s;
   transition: 0.2s;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .coach-card__desc p {
