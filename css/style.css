@@ -1654,8 +1654,6 @@ button,
 
 .coach-card {
   position: relative;
-  overflow: auto;
-  width: 260px;
   background-color: #030a1a;
 }
 
@@ -1689,30 +1687,17 @@ button,
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   top: 0;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  padding: 10px 46px 10px 55px;
   width: 100%;
   height: 100%;
   background-color: rgba(16, 38, 84, 0.89);
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  overflow: scroll;
 }
 
 .coach-card__desc p {
@@ -1727,6 +1712,20 @@ button,
 .coach-card__desc span {
   font-size: 16px;
   color: #b6bdcc;
+}
+
+.coach-card__desc-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 53px 51px;
 }
 
 .coach-card__experience-list {
@@ -1771,7 +1770,7 @@ button,
 }
 
 .contacts {
-  padding: 56px 99px 48px 120px;
+  padding: 56px 99px 48px 0;
   color: #102654;
 }
 
@@ -1786,9 +1785,9 @@ button,
   letter-spacing: 1.62px;
 }
 
-.contacts__wrapper {
+.contacts__content-container {
   margin: 0 auto 0 0;
-  max-width: 476px;
+  max-width: 580px;
 }
 
 .contacts__item-wrapper {
@@ -1834,11 +1833,11 @@ button,
 
 .contacts__item a:hover,
 .contacts__item a:focus {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .contacts__item a:active {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .contacts__divider-block {
@@ -2083,7 +2082,7 @@ button,
 
 .footer__navigation-list {
   list-style-type: none;
-  margin: 0;
+  margin: 0 0 0 21px;
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2091,6 +2090,7 @@ button,
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   max-width: 469px;
+  gap: 40px;
 }
 
 .footer__navigation-link {
@@ -2133,20 +2133,34 @@ button,
   position: relative;
   color: #ffffff;
   text-decoration: none;
-  padding: 20px;
+  padding: 0;
   display: block;
   font-size: 14px;
   font-weight: 400;
 }
 
+.footer__navigation-item a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  border: 1px solid #ffffff;
+  display: none;
+}
+
 .footer__navigation-item a::after {
   content: "";
   position: absolute;
-  width: calc(100% - 40px);
+  width: 100%;
   height: 1px;
   background-color: #ffffff;
   left: 50%;
-  bottom: 15px;
+  bottom: 0;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -2155,9 +2169,16 @@ button,
   transition: 0.2s;
 }
 
-.footer__navigation-item a:focus::after,
 .footer__navigation-item a:hover::after {
   opacity: 1;
+}
+
+.footer__navigation-item a:focus {
+  outline: none;
+}
+
+.footer__navigation-item a:focus::before {
+  display: block;
 }
 
 .footer__navigation-item--disabled a {
@@ -2229,7 +2250,7 @@ button,
 .free-visit {
   background-color: #102654;
   color: #ffffff;
-  padding: 56px 170px 69px 103px;
+  padding: 56px 0 69px 103px;
 }
 
 .free-visit h2 {
@@ -2241,9 +2262,9 @@ button,
   margin: 0 0 11px;
 }
 
-.free-visit__wrapper {
+.free-visit__content-wrapper {
+  max-width: 580px;
   margin: 0 0 0 auto;
-  max-width: 410px;
 }
 
 .free-visit__form div {
@@ -2461,6 +2482,7 @@ button,
 .gym__text-wrapper {
   padding: 39px 0 0 60px;
   color: #102654;
+  max-width: 415px;
 }
 
 .gym__text-wrapper h2 {
@@ -2497,8 +2519,6 @@ button,
 }
 
 .gym__media-wrapper {
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
   -ms-flex-item-align: start;
   align-self: flex-start;
   position: relative;
@@ -2903,6 +2923,10 @@ button,
   gap: 8px;
 }
 
+.promo__block br {
+  display: none;
+}
+
 .promo__block h3 {
   margin: 0;
   font-size: 26px;
@@ -3052,7 +3076,8 @@ button,
 
 .subscription {
   padding: 120px 0 188px;
-  background: linear-gradient(180deg, rgb(255, 255, 255) 0, rgb(248, 249, 252) 0, rgb(248, 249, 252) 850px, rgb(255, 255, 255) 850px);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(0, rgb(248, 249, 252)), color-stop(92.5%, rgb(248, 249, 252)), color-stop(92.5%, rgb(255, 255, 255)));
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0, rgb(248, 249, 252) 0, rgb(248, 249, 252) 92.5%, rgb(255, 255, 255) 92.5%);
   overflow: hidden;
 }
 
@@ -3126,6 +3151,10 @@ button,
   position: relative;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .subscription__item button:focus,
@@ -3268,6 +3297,17 @@ button,
   -o-border-image: linear-gradient(151deg, #ed0233 0%, #003eb7 100%);
   border-image: linear-gradient(151deg, #ed0233 0%, #003eb7 100%);
   border-image-slice: 1;
+}
+
+.subscription-card:hover a {
+  color: #ffffff;
+  border-color: transparent;
+  border-image-source: linear-gradient(151deg, #ed0233 0%, #003eb7 100%);
+  border-image-slice: 1;
+}
+
+.subscription-card:hover a::after {
+  opacity: 1;
 }
 
 .subscription-card__title {
@@ -3815,6 +3855,16 @@ button,
     display: none;
   }
 
+  .contacts__wrapper {
+    max-width: 460px;
+    margin: 0 0 0 auto;
+  }
+
+  .free-visit__wrapper {
+    max-width: 411px;
+    margin: 0 65px 0 0;
+  }
+
   .subscription__card-item {
     max-width: 360px;
     min-width: 304px;
@@ -3900,8 +3950,19 @@ button,
   }
 
   .coach-card {
-    width: 268px;
-    height: 294px;
+    aspect-ratio: 268/294;
+  }
+
+  .coach-card__desc-wrapper {
+    padding: 53px 38px;
+  }
+
+  .coach-card__experience-list {
+    padding: 0 0 0 33px;
+  }
+
+  .coach-card__experience-list li::after {
+    top: 6px;
   }
 
   .contacts h2 {
@@ -3911,10 +3972,10 @@ button,
   }
 
   .contacts {
-    padding: 61px 103px 64px 133px;
+    padding: 61px 103px 65px 133px;
   }
 
-  .contacts__wrapper {
+  .contacts__content-container {
     margin: 0;
     max-width: none;
   }
@@ -4018,6 +4079,8 @@ button,
 
   .footer__navigation-list {
     max-width: 419px;
+    margin: 0;
+    gap: 30px;
   }
 
   .footer__navigation-link::after {
@@ -4029,11 +4092,7 @@ button,
   }
 
   .footer__navigation-item a::after {
-    width: calc(100% - 30px);
-  }
-
-  .footer__navigation-item a {
-    padding: 15px;
+    width: 100%;
   }
 
   .free-visit h2 {
@@ -4045,10 +4104,10 @@ button,
   }
 
   .free-visit {
-    padding: 61px 163px 70px 133px;
+    padding: 61px 163px 68px 133px;
   }
 
-  .free-visit__wrapper {
+  .free-visit__content-wrapper {
     margin: 0;
     max-width: none;
   }
@@ -4080,6 +4139,7 @@ button,
 
   .gym__text-wrapper {
     padding: 0 50px;
+    max-width: none;
   }
 
   .gym__text-wrapper h2 {
@@ -4154,6 +4214,10 @@ button,
     -ms-flex-pack: justify;
     justify-content: space-between;
     gap: 30px;
+  }
+
+  .hero .container {
+    padding: 0 45px 47px;
   }
 
   .hero__content-wrapper {
@@ -4236,6 +4300,10 @@ button,
     width: 399px;
   }
 
+  .promo__block br {
+    display: block;
+  }
+
   .promo__block {
     min-height: 211px;
   }
@@ -4259,8 +4327,9 @@ button,
   }
 
   .subscription {
-    background: linear-gradient(180deg, rgb(248, 249, 252) 1778px, rgb(255, 255, 255) 1778px);
-    padding: 100px 0 186px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(95.5%, rgb(248, 249, 252)), color-stop(95.5%, rgb(255, 255, 255)));
+    background: linear-gradient(180deg, rgb(248, 249, 252) 95.5%, rgb(255, 255, 255) 95.5%);
+    padding: 100px 0 184px;
   }
 
   .subscription__wrapper > h2 {
@@ -4279,7 +4348,7 @@ button,
   }
 
   .subscription__card-list {
-    gap: 35px;
+    gap: 42px;
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
@@ -4299,8 +4368,12 @@ button,
   }
 
   .subscription__picture {
-    bottom: -180px;
+    bottom: -175px;
     right: -9px;
+  }
+
+  .subscription-card a {
+    padding: 21px 42px;
   }
 
   .subscription-card {
@@ -4505,12 +4578,11 @@ button,
   }
 
   .coach-card {
-    width: 226px;
-    height: 274px;
+    aspect-ratio: 226/274;
   }
 
-  .coach-card__desc {
-    padding: 10px 33px;
+  .coach-card__desc-wrapper {
+    padding: 43px 18px;
   }
 
   .contacts h2 {
@@ -4593,12 +4665,12 @@ button,
   }
 
   .footer {
-    padding: 38px 0 47px;
+    padding: 46px 0;
   }
 
   .footer__logo-wrapper {
     position: absolute;
-    top: 11px;
+    top: 6px;
     left: 0;
     margin: 0;
     padding: 0 0 0 15px;
@@ -4619,9 +4691,13 @@ button,
     -ms-grid-rows: (40px)[3];
     grid-template-rows: repeat(3, 40px);
     grid-auto-flow: column;
-    width: 100%;
+    width: calc(100% - 10px);
     max-width: none;
-    margin: 0 0 19px;
+    margin: 0 0 13px;
+    gap: 0;
+    -webkit-column-gap: 19px;
+    -moz-column-gap: 19px;
+    column-gap: 19px;
   }
 
   .footer__navigation-link {
@@ -4643,17 +4719,12 @@ button,
   }
 
   .footer__navigation-item a::after {
-    width: calc(100% - 26px);
-    bottom: 5px;
+    width: 100%;
+    bottom: 0;
   }
 
   .footer__navigation-item a {
     font-size: 16px;
-    padding: 8px 13px;
-  }
-
-  .footer__navigation-item {
-    width: 50%;
   }
 
   .footer__navigation-item:first-child {
@@ -4665,13 +4736,12 @@ button,
 
   .footer__socials-list {
     width: 100%;
-    padding: 0 0 0 11px;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
   .footer__container {
-    padding: 0;
+    padding: 0 0 0 11px;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4794,6 +4864,10 @@ button,
     justify-content: flex-end;
   }
 
+  .hero .container {
+    padding: 0 15px 47px;
+  }
+
   .hero__content-wrapper {
     padding-top: 68px;
     display: block;
@@ -4897,6 +4971,10 @@ button,
     width: 100%;
   }
 
+  .promo__block br {
+    display: none;
+  }
+
   .promo__block a {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
@@ -4965,7 +5043,8 @@ button,
   }
 
   .subscription {
-    padding: 64px 0 69px;
+    background: rgb(248, 249, 252);
+    padding: 64px 0 71px;
   }
 
   .subscription__wrapper > h2 {
@@ -4979,6 +5058,10 @@ button,
 
   .subscription__list {
     gap: 45px;
+  }
+
+  .subscription__card-list {
+    gap: 40px;
   }
 
   .subscription__card-item {
